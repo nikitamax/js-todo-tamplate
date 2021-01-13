@@ -4,40 +4,25 @@ const task = {
   id: "1",
   text: "выучить html",
   completed: true
-}
-let createListItem = function () {
+  };
 
-  let newItem = document.createElement('li');
-  newItem.classList.add('editing');
-  
-  let newDiv = document.createElement('div');
-
-
-  let newInput = document.createElement('input');
-  newInput.classList.add('toggle');
-  newInput.setAttribute('type', 'radio');
-
-  let newLabel = document.createElement('label');
-  newLabel.textContent = 'выучить html';
-
-  let newButton = document.createElement('button');
-  newButton.classList.add('todo-count');
-
-  
-  newDiv.append(newInput);
-  newDiv.append(newLabel);
-  newDiv.append(newButton);
-  newItem.append(newDiv);
-
-  todoList.append(newItem);
-
+function createListItem() {
+    let createListItem = `
+    <li class='editing' id = '${task.id}'>
+    <div>
+    <input class='toggle' type='radio'>
+    <label>${task.text}</label>
+    <button class='todo-count'></button>
+    </div>
+    </li>
+    `
+    todoList.innerHTML = createListItem;
 };
 
-createListItem();
+function renderTask() { 
 
-let renderTask = function () { 
+  createListItem();
+  
+};
 
-}
-
-
-
+todoList.push(renderTask(task));
